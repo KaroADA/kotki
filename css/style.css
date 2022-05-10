@@ -1,0 +1,25 @@
+body{
+    height: 100vw;
+}
+
+.obrazek{
+    position: absolute;
+    width: 100%;
+}
+
+.img_div{
+    width: 100%;
+    height: 18rem;
+}
+
+#img_kotek{
+    z-index: 100;
+}
+
+#img_okularki{
+    z-index: 200;
+}
+
+#img_czapka{
+    z-index: 300;
+}
