@@ -65,6 +65,7 @@
                                 <option value="2"'.($kotek['id_czapki'] == 2 ? ' selected ' : '').'>Gej</option>
                                 <option value="3"'.($kotek['id_czapki'] == 3 ? ' selected ' : '').'>Czapa</option>
                                 <option value="4"'.($kotek['id_czapki'] == 4 ? ' selected ' : '').'>Sombrero</option>
+                                <option value="5"'.($kotek['id_czapki'] == 5 ? ' selected ' : '').'>Urodziny</option>
                             </select>
                         </div>
                     </div>
