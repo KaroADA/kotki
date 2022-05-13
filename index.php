@@ -16,13 +16,13 @@
     <div class="container-fluid">
         <div class="row justify-content-end">
 
-            <div class="col-1 mx-3">
+            <div class="col-1 mx-1 w-auto">
                 <h5 class="card-title mb-3">moje kotki</h5>
             </div>
-            <div class="col-1 mx-3">
+            <div class="col-1 mx-1 w-auto">
                 <h5 class="card-title mb-3">hodowla</h5>
             </div>
-            <div class="col-1 mx-3">
+            <div class="col-1 mx-1 w-auto">
                 <h5 class="card-title mb-3">logowanie</h5>
             </div>
         </div>
@@ -34,7 +34,7 @@
                 <h6 class="card-title mb-3">uga buga</h5>
                 <h6 class="card-title mb-3">bla lba bla</h5>
                 <h6 class="card-title mb-3">bla lba bla</h5>
-                <h6 class="card-title mb-3">filtrowanie</h5>
+                <h6 class="card-title mb-3">flirtowanie</h5>
                 <h6 class="card-title mb-3">bla lba bla</h5>
                 <h6 class="card-title mb-3">bla lba bla</h5>
             </div>
