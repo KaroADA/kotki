@@ -16,7 +16,7 @@
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-            $wynik = $pdo->query('SELECT zdjecie, imie FROM kotki');
+            $wynik = $pdo->query('SELECT id_kotka, zdjecie, imie FROM kotki');
 
             foreach($wynik as $kotek)
             {
@@ -25,7 +25,7 @@
                 <div class="card" style="width: 18rem; height: 100%;">
                     <div class="card-img-top img_div">
                         <img class="obrazek" id="img_kotek" src="'.$kotek['zdjecie'].'">
-                        <img class="obrazek" id="img_okularki" src="img/okularki.png">
+                        <img class="obrazek" id="img_okularki" src="img/okularki_'.strval($kotek['id_kotka'] % 5 + 1).'.png">
                         <img class="obrazek" id="img_czapka" src="img/czapka.png">
                     </div>
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
@@ -34,12 +34,12 @@
                         <div class="form-group mb-3">
                             <label for="selectOkularki">Wybierz okularki</label>
                             <select class="form-control" id="selectOkularki">
-                                <option>Nic</option>
-                                <option>Okulary 1</option>
-                                <option>Okulary 2</option>
-                                <option>Okulary 3</option>
-                                <option>Okulary 4</option>
-                                <option>Okulary 5</option>
+                                <option value="0">Nic</option>
+                                <option value="1">Okulary 1</option>
+                                <option value="2">Okulary 2</option>
+                                <option value="3">Okulary 3</option>
+                                <option value="4">Okulary 4</option>
+                                <option value="5">Okulary 5</option>
                             </select>
                         </div>
                         <div class="form-group mb-3">
