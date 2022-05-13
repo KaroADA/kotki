@@ -1,4 +1,5 @@
 <?php 
+
     $mysql_host = 'mysql.staszic.waw.pl'; 
     $port = '3306'; //domyslny 3306
     $username = 'karoada';//uzytkownik
@@ -36,7 +37,7 @@
             {
             echo '
             <div class="col m-3 w-auto">
-                <div class="card" style="width: 18rem; height: 100%;">
+                <div class="card" id="card_'.$kotek['id_kotka'].'" style="width: 18rem; height: 100%;">
                     <div class="card-img-top img_div">
                         <img class="obrazek" id="img_kotek" src="'.$kotek['zdjecie'].'">
                         <img class="obrazek" id="img_okularki" src="img/okularki_'.strval($kotek['id_okularkow']).'.png">
@@ -46,8 +47,8 @@
                     <div class="card-body">
                         <h5 class="card-title mb-3">'.$kotek['imie'].'</h5>
                         <div class="form-group mb-3">
-                            <label for="selectOkularki">Wybierz okularki</label>
-                            <select class="form-control" id="selectOkularki">
+                            <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
+                            <select class="form-control" id="selectOkularki_'.$kotek['id_kotka'].'">
                                 <option value="0"'.($kotek['id_okularkow'] == 0 ? ' selected ' : '').'>Nic</option>
                                 <option value="1"'.($kotek['id_okularkow'] == 1 ? ' selected ' : '').'>Okulary 1</option>
                                 <option value="2"'.($kotek['id_okularkow'] == 2 ? ' selected ' : '').'>Okulary 2</option>
@@ -57,15 +58,15 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="selectOkularki">Wybierz czape</label>
-                            <select class="form-control" id="selectOkularki">
+                            <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
+                            <select class="form-control" id="selectCzapki_'.$kotek['id_kotka'].'">
                                 <option value="0"'.($kotek['id_czapki'] == 0 ? ' selected ' : '').'>Nic</option>
                                 <option value="1"'.($kotek['id_czapki'] == 1 ? ' selected ' : '').'>Mikołaj</option>
                                 <option value="2"'.($kotek['id_czapki'] == 2 ? ' selected ' : '').'>Kowboj</option>
                                 <option value="3"'.($kotek['id_czapki'] == 3 ? ' selected ' : '').'>Urodziny</option>
                             </select>
                         </div>
-                        <a href="?id_kotka='.$kotek['id_kotka'].'&id_czapki='.$kotek['id_czapki'].'&id_okularkow='.$kotek['id_okularkow'].'" class="btn btn-primary" id="save_'.strval($kotek['id_kotka']).'">Zapisz</a>
+                        <button class="save_btn btn btn-primary" id="save_'.strval($kotek['id_kotka']).'">Zapisz</button>
                     </div>
                 </div>
             </div>';
