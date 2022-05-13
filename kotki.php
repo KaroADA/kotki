@@ -39,16 +39,16 @@
             <div class="col m-3 w-auto">
                 <div class="card" id="card_'.$kotek['id_kotka'].'" style="width: 18rem; height: 100%;">
                     <div class="card-img-top img_div">
-                        <img class="obrazek" id="img_kotek" src="'.$kotek['zdjecie'].'">
-                        <img class="obrazek" id="img_okularki" src="img/okularki_'.strval($kotek['id_okularkow']).'.png">
-                        <img class="obrazek" id="img_czapka" src="img/czapka.png">
+                        <img class="obrazek" id="img_kotek_'.$kotek['id_kotka'].'" src="'.$kotek['zdjecie'].'">
+                        <img class="obrazek" id="img_okularki_'.$kotek['id_kotka'].'" src="img/okularki_'.strval($kotek['id_okularkow']).'.png">
+                        <img class="obrazek" id="img_czapka_'.$kotek['id_kotka'].'" src="img/czapka_'.strval($kotek['id_czapki']).'.png">
                     </div>
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                     <div class="card-body">
                         <h5 class="card-title mb-3">'.$kotek['imie'].'</h5>
                         <div class="form-group mb-3">
                             <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
-                            <select class="form-control" id="selectOkularki_'.$kotek['id_kotka'].'">
+                            <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">
                                 <option value="0"'.($kotek['id_okularkow'] == 0 ? ' selected ' : '').'>Nic</option>
                                 <option value="1"'.($kotek['id_okularkow'] == 1 ? ' selected ' : '').'>Okulary 1</option>
                                 <option value="2"'.($kotek['id_okularkow'] == 2 ? ' selected ' : '').'>Okulary 2</option>
@@ -59,14 +59,14 @@
                         </div>
                         <div class="form-group mb-3">
                             <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
-                            <select class="form-control" id="selectCzapki_'.$kotek['id_kotka'].'">
+                            <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">
                                 <option value="0"'.($kotek['id_czapki'] == 0 ? ' selected ' : '').'>Nic</option>
                                 <option value="1"'.($kotek['id_czapki'] == 1 ? ' selected ' : '').'>Mikołaj</option>
-                                <option value="2"'.($kotek['id_czapki'] == 2 ? ' selected ' : '').'>Kowboj</option>
-                                <option value="3"'.($kotek['id_czapki'] == 3 ? ' selected ' : '').'>Urodziny</option>
+                                <option value="2"'.($kotek['id_czapki'] == 2 ? ' selected ' : '').'>Gej</option>
+                                <option value="3"'.($kotek['id_czapki'] == 3 ? ' selected ' : '').'>Czapa</option>
+                                <option value="4"'.($kotek['id_czapki'] == 4 ? ' selected ' : '').'>Sombrero</option>
                             </select>
                         </div>
-                        <button class="save_btn btn btn-primary" id="save_'.strval($kotek['id_kotka']).'">Zapisz</button>
                     </div>
                 </div>
             </div>';
