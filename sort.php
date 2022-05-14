@@ -23,7 +23,7 @@
                 //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sorts = array("id_kotka", "wiek", "wiek DESC", "waga", "waga DESC", "imie", "imie DESC");
 
-                $wynik = $pdo->query('SELECT id_kotka, id_okularkow, id_czapki, zdjecie, imie FROM kotki ORDER BY '.$sorts[$id_sort]);
+                $wynik = $pdo->query('SELECT * FROM kotki ORDER BY '.$sorts[$id_sort]);
 
                 foreach($wynik as $kotek)
                 {
@@ -37,7 +37,9 @@
                         </div>
                         <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                         <div class="card-body">
-                            <h5 class="card-title mb-3">'.$kotek['imie'].'</h5>
+                        <h4 class="card-title mb-3">'.$kotek['imie'].'</h4>
+                        <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
+                        <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                             <div class="form-group mb-3">
                                 <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
                                 <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">

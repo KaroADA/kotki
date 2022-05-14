@@ -5,7 +5,7 @@
     $username = 'karoada';//uzytkownik
     $password = 'kotki';//haslo
     $database = 'karoada'; //baza
-    
+
     try
     {
         //polaczenie z baza
@@ -17,7 +17,7 @@
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-            $wynik = $pdo->query('SELECT id_kotka, id_okularkow, id_czapki, zdjecie, imie FROM kotki');
+            $wynik = $pdo->query('SELECT * FROM kotki');
 
             foreach($wynik as $kotek)
             {
@@ -31,7 +31,9 @@
                     </div>
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                        <h5 class="card-title mb-3">'.$kotek['imie'].'</h5>
+                        <h4 class="card-title mb-3">'.$kotek['imie'].'</h4>
+                        <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
+                        <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                         <div class="form-group mb-3">
                             <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
                             <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">
