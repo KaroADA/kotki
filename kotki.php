@@ -17,7 +17,7 @@
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-            $wynik = $pdo->query('SELECT * FROM kotki');
+            $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].';');
 
             foreach($wynik as $kotek)
             {
