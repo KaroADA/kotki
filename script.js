@@ -1,11 +1,6 @@
-$(".save_btn").click(function() {
-    console.log("kilk");
-
-    
-});
 console.log("ee");
 
-$(".selectCzapki").on('change', function() {
+$(document).on('click', '.selectCzapki', function() {
     console.log( this.value );
 
     id_kotka = this.id.slice(13);
@@ -18,7 +13,7 @@ $(".selectCzapki").on('change', function() {
     post(id_kotka);
 });
 
-$(".selectOkularki").on('change', function() {
+$(document).on('click', '.selectOkularki', function() {
     console.log( this.value );
 
     id_kotka = this.id.slice(15);
@@ -46,3 +41,20 @@ function post(id_kotka){
         }
     });
 }
+
+$("#selectSort").on('change', function() {
+    console.log( this.value );
+
+    id_sort = this.value;
+
+    $.ajax({
+        type: "POST",
+        url: "sort.php",
+        data: { id_sort: id_sort},
+        success: function(data)
+        {
+            console.log(data);
+            $("#div_kotki").fadeOut(350).html(data).fadeIn(350);
+        }
+    });
+});

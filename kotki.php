@@ -6,20 +6,6 @@
     $password = 'kotki';//haslo
     $database = 'karoada'; //baza
     
-	$id_kotka_url = -1;
-	$id_czapki_url = -1;
-	$id_okularkow_url = -1;
-	
-	if (isset($_GET['id_kotka'])) {
-		$id_kotka_url = $_GET['id_kotka'];
-	}
-	if (isset($_GET['id_czapki'])) {
-		$id_czapki_url = $_GET['id_czapki'];
-	}
-	if (isset($_GET['id_okularkow'])) {
-		$id_okularkow_url = $_GET['id_okularkow'];
-	}
-	
     try
     {
         //polaczenie z baza
