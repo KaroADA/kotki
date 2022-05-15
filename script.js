@@ -1,5 +1,15 @@
 console.log("ee");
 
+$.ajax({
+    type: "POST",
+    url: "moje_kotki.php",
+    success: function(data)
+    {
+        console.log(data);
+        $("#page_container").html(data).fadeIn(350);
+    }
+});
+
 $(document).on('click', '.selectCzapki', function() {
     console.log( this.value );
 
@@ -57,4 +67,37 @@ $("#selectSort").on('change', function() {
             $("#div_kotki").fadeOut(350).html(data).fadeIn(350);
         }
     });
+});
+
+$(document).on('click', '.nav-link', function() {
+    console.log( this.id );
+
+    switch(this.id){
+        case "moje_kotki_link":
+            $.ajax({
+                type: "POST",
+                url: "moje_kotki.php",
+                success: function(data)
+                {
+                    $("#page_container").fadeOut(350, function(){
+                        $("#page_container").html(data).fadeIn(350)
+                    });
+                }
+            });
+            break;
+        case "hodowla_link":
+            $.ajax({
+                type: "POST",
+                url: "hodowla.php",
+                success: function(data)
+                {
+                    $("#page_container").fadeOut(350, function(){
+                        $("#page_container").html(data).fadeIn(350)
+                    });
+                }
+            });
+            break;
+        case "wyloguj_link":
+            break;
+    }
 });

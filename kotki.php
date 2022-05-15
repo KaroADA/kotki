@@ -1,4 +1,5 @@
 <?php 
+    session_start();
 
     $mysql_host = 'mysql.staszic.waw.pl'; 
     $port = '3306'; //domyslny 3306
