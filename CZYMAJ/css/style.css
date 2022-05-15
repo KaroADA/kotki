@@ -1,0 +1,49 @@
+body{
+    height: 100vw;
+}
+
+body::-webkit-scrollbar {
+    width: 0.25rem;
+}
+
+body::-webkit-scrollbar-track {
+    background: #1e1e24;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #408cb8;
+}
+
+.obrazek{
+    position: absolute;
+    width: 100%;
+}
+
+.img_div{
+    width: 100%;
+    height: 18rem;
+}
+
+#img_kotek{
+    z-index: 100;
+}
+
+#img_okularki{
+    z-index: 200;
+}
+
+#img_czapka{
+    z-index: 300;
+}
+
+.bb
+{
+	font-weight: bold;
+	font-size: large;
+}
+
+#webcontent
+{
+	margin-top: 85px;
+	margin-bottom: 20px;
+}
