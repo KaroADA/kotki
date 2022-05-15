@@ -39,7 +39,7 @@
                             <a class="nav-link" id="hodowla_link" href="#">Hodowla kotków</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="wyloguj_link" href="#">Wyloguj się</a>
+                            <a class="nav-link" id="wyloguj_link" href="wyloguj.php">Wyloguj się</a>
                         </li>
                     </ul>
                 </div>

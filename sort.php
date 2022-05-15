@@ -1,4 +1,5 @@
 <?php
+    session_start();
 
     if (isset($_POST['id_sort'])) {
         echo save($_POST['id_sort']);
@@ -23,7 +24,7 @@
                 //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 $sorts = array("id_kotka", "wiek", "wiek DESC", "waga", "waga DESC", "imie", "imie DESC");
 
-                $wynik = $pdo->query('SELECT * FROM kotki ORDER BY '.$sorts[$id_sort]);
+                $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].' ORDER BY '.$sorts[$id_sort]);
 
                 foreach($wynik as $kotek)
                 {
