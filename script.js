@@ -72,7 +72,9 @@ $(document).on('change', '#selectSort', function() {
 $(document).on('click', '.nav-link', function() {
     console.log( this.id );
 
-    switch(this.id){
+    id = this.id;
+
+    switch(id){
         case "moje_kotki_link":
             $.ajax({
                 type: "POST",
@@ -80,7 +82,8 @@ $(document).on('click', '.nav-link', function() {
                 success: function(data)
                 {
                     $("#page_container").fadeOut(350, function(){
-                        $("#page_container").html(data).fadeIn(350)
+                        set_active(id);
+                        $("#page_container").html(data).fadeIn(350);
                     });
                 }
             });
@@ -92,7 +95,8 @@ $(document).on('click', '.nav-link', function() {
                 success: function(data)
                 {
                     $("#page_container").fadeOut(350, function(){
-                        $("#page_container").html(data).fadeIn(350)
+                        set_active(id);
+                        $("#page_container").html(data).fadeIn(350);
                     });
                 }
             });
@@ -101,3 +105,10 @@ $(document).on('click', '.nav-link', function() {
             break;
     }
 });
+
+function set_active(id){
+    $("#moje_kotki_link").removeClass("active");
+    $("#hodowla_link").removeClass("active");
+    
+    $("#" + id).addClass("active");
+}
