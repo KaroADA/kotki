@@ -1,0 +1,51 @@
+html, body {margin: 0; height: auto; width:auto; overflow: hidden}
+
+.background-kotki{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    z-index: -100;
+}
+
+.kotek{
+    position: absolute;
+}
+
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 100vh; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+}
+
+$kolorki: rgba(246,162,92,255), rgba(208,208,208,255), #803900, #a3a3a3, #6b6b6b, #cf8700;
+
+@for $i from 1 through 20{
+    .kotek:nth-child(#{$i}){
+        width: (random(5) + 3) + rem !important;
+        height: min-content !important;
+
+        @keyframes wziuu-#{$i} {
+            0%   {
+                transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+                opacity: 0;
+            }
+            5%   {opacity: 1;}
+            95%   {opacity: 1;}
+            100% {
+                transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+                opacity: 0;
+            }
+        }
+
+        animation: wziuu-#{$i};
+        animation-duration: (random(45) + 5) + s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .kotek:nth-child(#{$i}) #cialko{
+        fill: nth($kolorki, random(length($kolorki))) !important;
+    }
+}

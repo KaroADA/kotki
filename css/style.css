@@ -1,17 +1,20 @@
 body{
-    height: 100vw;
+    height: 100vh;
+    transition: all 1s;
 }
 
 body::-webkit-scrollbar {
-    width: 0.25rem;
+    width: .5rem;
 }
 
 body::-webkit-scrollbar-track {
-    background: #1e1e24;
+    background: #4f4f53;
 }
 
 body::-webkit-scrollbar-thumb {
-    background: #408cb8;
+    background: #6ab97e;
+    /* background: linear-gradient(0deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%, rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%, rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%); */
+    border-radius: 10px;
 }
 
 .obrazek{
@@ -34,4 +37,29 @@ body::-webkit-scrollbar-thumb {
 
 #img_czapka{
     z-index: 300;
+}
+
+.bb
+{
+	font-weight: bold;
+	font-size: large;
+}
+
+#webcontent{
+    border-radius: 7px;
+}
+
+.login_footer{
+    background: rgb(236, 236, 236);
+    min-height: 2rem;
+    border-radius: 0px 0px 7px 7px;
+}
+
+.active{
+    color: #6ab97e !important;
+    font-weight: bold !important;
+}
+
+.footer_link{
+    color: #999;
 }
