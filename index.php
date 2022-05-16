@@ -26,7 +26,17 @@
         
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <div class="container">
-                <h5 class="navbar-brand">Kotki</h5>
+                <div class="navbar-brand">
+                    <?php 
+                        echo file_get_contents("img/kotek.svg");
+                    ?>
+                    <style>
+                        .kotek{
+                            max-height: 40px;
+                            width: min-content;
+                        }
+                    </style>
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

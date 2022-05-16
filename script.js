@@ -1,5 +1,10 @@
 console.log("ee");
 
+kolorki = ["#b38749", "#eaca93", "#4a3300", "#684406", "#999999", "#C1C1C1", "#606060", "#303030", "#783F04", "#AE8B68", "#34291F"];
+
+$("#cialko").css({fill: kolorki[Math.floor(Math.random()*kolorki.length)]});
+console.log("fill:" + kolorki[Math.floor(Math.random()*kolorki.length)]);
+
 $.ajax({
     type: "POST",
     url: "moje_kotki.php",

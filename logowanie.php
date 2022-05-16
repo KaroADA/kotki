@@ -23,7 +23,7 @@
 
 		<div class="container">
 			<div class="row" style="justify-content: center; transition: all 1s">
-				<div id="webcontent" class="bg-light w-auto mt-5">
+				<div id="webcontent" class="w-auto mt-5">
 					<div class="row">
 						<h3 class="text-center font-weight-light my-3" id="title">Zaloguj się</h3>
 						
