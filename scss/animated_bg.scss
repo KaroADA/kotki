@@ -10,6 +10,7 @@ html, body {margin: 0; height: auto; width:auto; overflow: hidden}
 
 .kotek{
     position: absolute;
+    opacity: 0;
 }
 
 .vertical-center {
@@ -20,28 +21,149 @@ html, body {margin: 0; height: auto; width:auto; overflow: hidden}
     align-items: center;
 }
 
-$kolorki: rgba(246,162,92,255), rgba(208,208,208,255), #803900, #a3a3a3, #6b6b6b, #cf8700;
+$kolorki: rgba(246,162,92,255), rgba(208,208,208,255), #803900, #a3a3a3, #6b6b6b, #cf8700, #b38749, #eaca93, #4a3300, #684406, #999999, #C1C1C1, #606060, #303030, #783F04, #AE8B68, #34291F;
 
-@for $i from 1 through 20{
+// @for $i from 1 through 20{
+//     .kotek:nth-child(#{$i}){
+//         width: (random(5) + 3) + rem !important;
+//         height: min-content !important;
+
+//         @keyframes wziuu-#{$i} {
+//             0%   {
+//                 transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+//                 opacity: 0;
+//             }
+//             5%   {opacity: 1;}
+//             95%   {opacity: 1;}
+//             100% {
+//                 transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+//                 opacity: 0;
+//             }
+//         }
+
+//         animation: wziuu-#{$i};
+//         animation-duration: (random(45) + 5) + s;
+//         animation-timing-function: linear;
+//         animation-iteration-count: infinite;
+//     }
+//     .kotek:nth-child(#{$i}) #cialko{
+//         fill: nth($kolorki, random(length($kolorki))) !important;
+//     }
+// }
+
+$min_time: 10;
+$max_time: 65 - $min_time;
+$delay_max: 5;
+$max_rotation: 1440;
+
+@for $i from 1 through 4{
     .kotek:nth-child(#{$i}){
         width: (random(5) + 3) + rem !important;
         height: min-content !important;
 
         @keyframes wziuu-#{$i} {
             0%   {
-                transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+                transform: translate((random(100) - 1) + vw,-10vh) rotate((random($max_rotation + 1) - 1) + deg);
                 opacity: 0;
             }
             5%   {opacity: 1;}
             95%   {opacity: 1;}
             100% {
-                transform: translate((random(100) - 1) + vw,(random(100) - 1) + vh) rotate((random(361) - 1) + deg);
+                transform: translate((random(100) - 1) + vw,110vh) rotate((random($max_rotation + 1) - 1) + deg);
                 opacity: 0;
             }
         }
 
         animation: wziuu-#{$i};
-        animation-duration: (random(45) + 5) + s;
+        animation-duration: (random($max_time) + $min_time) + s;
+        animation-delay: (random($delay_max) - 1) + s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .kotek:nth-child(#{$i}) #cialko{
+        fill: nth($kolorki, random(length($kolorki))) !important;
+    }
+}
+
+@for $i from 5 through 9{
+    .kotek:nth-child(#{$i}){
+        width: (random(5) + 3) + rem !important;
+        height: min-content !important;
+
+        @keyframes wziuu-#{$i} {
+            0%   {
+                transform: translate((random(100) - 1) + vw,110vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+            5%   {opacity: 1;}
+            95%   {opacity: 1;}
+            100% {
+                transform: translate((random(100) - 1) + vw,-10vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+        }
+
+        animation: wziuu-#{$i};
+        animation-duration: (random($max_time) + $min_time) + s;
+        animation-delay: (random($delay_max) - 1) + s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .kotek:nth-child(#{$i}) #cialko{
+        fill: nth($kolorki, random(length($kolorki))) !important;
+    }
+}
+
+@for $i from 10 through 14{
+    .kotek:nth-child(#{$i}){
+        width: (random(5) + 3) + rem !important;
+        height: min-content !important;
+
+        @keyframes wziuu-#{$i} {
+            0%   {
+                transform: translate(-10vw, (random(100) - 1) + vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+            5%   {opacity: 1;}
+            95%   {opacity: 1;}
+            100% {
+                transform: translate(110vw, (random(100) - 1) + vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+        }
+
+        animation: wziuu-#{$i};
+        animation-duration: (random($max_time) + $min_time) + s;
+        animation-delay: (random($delay_max) - 1) + s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+    }
+    .kotek:nth-child(#{$i}) #cialko{
+        fill: nth($kolorki, random(length($kolorki))) !important;
+    }
+}
+
+@for $i from 15 through 20{
+    .kotek:nth-child(#{$i}){
+        width: (random(5) + 3) + rem !important;
+        height: min-content !important;
+
+        @keyframes wziuu-#{$i} {
+            0%   {
+                transform: translate(110vw,(random(100) - 1) + vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+            5%   {opacity: 1;}
+            95%   {opacity: 1;}
+            100% {
+                transform: translate(-10vw,(random(100) - 1) + vh) rotate((random($max_rotation + 1) - 1) + deg);
+                opacity: 0;
+            }
+        }
+
+        animation: wziuu-#{$i};
+        animation-duration: (random($max_time) + $min_time) + s;
+        animation-delay: (random($delay_max) - 1) + s;
         animation-timing-function: linear;
         animation-iteration-count: infinite;
     }
