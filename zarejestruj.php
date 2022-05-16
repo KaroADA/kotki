@@ -9,7 +9,7 @@
             session_start();
 
             if((!isset($_POST['login'])) || (!isset($_POST['haslo'])) || (!isset($_POST['haslo2']))){
-                header('Location: rejestracja.php');
+                header('Location: logowanie.php?logowanie=false');
                 return;
             }
             
@@ -32,7 +32,7 @@
             }
 
             if(isset($_SESSION['blad'])){
-                header('Location: rejestracja.php');
+                header('Location: logowanie.php?logowanie=false');
                 return;
             }
             
@@ -51,7 +51,7 @@
             .mysqli_real_escape_string($polaczenie, $login)."'")){
                 if($tabela->num_rows){
                     $_SESSION['blad'] = 'Użytkownik o podanym loginie już istnieje!';
-                    header('Location: rejestracja.php');
+                    header('Location: logowanie.php?logowanie=false');
                 }
                 else{
                     if($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '".mysqli_real_escape_string($polaczenie, $login)."', '$hasz_hasla')")){
@@ -60,13 +60,13 @@
                     }
                     else{
                         $_SESSION['blad'] = 'Wystąpił błąd!';
-                        header('Location: rejestracja.php');
+                        header('Location: logowanie.php?logowanie=false');
                     }
                 }
             }
             else{
                 $_SESSION['blad'] = 'Wystąpił błąd!';
-                header('Location: rejestracja.php');
+                header('Location: logowanie.php?logowanie=false');
             }
 
             $polaczenie->close();

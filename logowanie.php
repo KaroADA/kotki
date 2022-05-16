@@ -22,12 +22,12 @@
         ?>
 
 		<div class="container">
-			<div class="row" style="justify-content: center;">
+			<div class="row" style="justify-content: center; transition: all 1s">
 				<div id="webcontent" class="bg-light w-auto mt-5">
 					<div class="row">
-						<h3 class="text-center font-weight-light my-3">Zaloguj się</h3>
+						<h3 class="text-center font-weight-light my-3" id="title">Zaloguj się</h3>
 						
-						<form action="zaloguj.php" method="post">
+						<form action="zaloguj.php" method="post" id="form-logowanie">
 							<div class="form-group my-3">
 								<i class="fa fa-user"></i>
 								<input type="text" name="login" class="form-control" placeholder="Login" required="required">
@@ -36,18 +36,22 @@
 								<i class="fa fa-lock"></i>
 								<input type="password" name="haslo" class="form-control" placeholder="Hasło" required="required">					
 							</div>
-							<input class="btn btn-success mb-3 w-100" type="submit" value="Zaloguj się">
+							<div class="form-group mb-3" id="haslo2" style="display: none">
+								<i class="fa fa-lock"></i>
+								<input type="password" name="haslo2" class="form-control" placeholder="Powtórz hasło">					
+							</div>
+							<input class="btn btn-success mb-3 w-100" id="btn-zaloguj" type="submit" value="Zaloguj się">
 						</form>
 						
 						<?php
 							if(isset($_SESSION['blad'])){
-								echo '<p style="color:red">'.$_SESSION['blad'].'</p>';
+								echo '<p class="text-danger" id="blad">'.$_SESSION['blad'].'</p>';
 								unset($_SESSION['blad']);
 							}	
 						?>
 					</div>
 					<div class="row login_footer">
-						<a class="footer_link text-center align-middle" href="rejestracja.php">Nie masz konta?</a>
+						<a class="footer_link text-center align-middle" id="footer_link" href="#">Nie masz konta?</a>
 					</div>
 				</div>
 			</div>
@@ -60,6 +64,10 @@
 				}
 			?>
 		</div>
+		
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+		<script src="logowanie.js"></script>
+
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
