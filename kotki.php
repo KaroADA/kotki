@@ -18,7 +18,7 @@
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         
-            $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].';');
+            $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].' ORDER BY data DESC;');
 
             foreach($wynik as $kotek)
             {
@@ -32,7 +32,7 @@
                     </div>
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                        <h4 class="card-title mb-3">'.$kotek['imie'].'</h4>
+                        <h4 class="card-title mb-3">'.$kotek['imie'].($kotek['plec'] == "Kot" ? " ♂" : " ♀").'</h4>
                         <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
                         <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                         <div class="form-group mb-3">
@@ -54,7 +54,7 @@
                             <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
                             <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">';
 
-            $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+            $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "Pirat", "Róż", "Urodziny 2", "Wieśniara", "Golf", "Przyjaciel", "Pani dworu", "Czapka z daszkiem", "Brązowy kapelusz", "Czarny kapelusz", "Prezydent", "Thug Life", "Elf", "Kriper", "Budowlaniec", "Policja", "Przystojniak", "Kucharz", "Incognito");
             $i = 0;
 
             foreach($czapki as $czapka){

@@ -17,7 +17,7 @@
         try
         {
             $pdo = new PDO('mysql:host='.$mysql_host.';dbname='.$database.';port='.$port, $username, $password );
-            $pdo->query('UPDATE kotki SET id_wl = '.$_SESSION['id'].' WHERE id_kotka = '.$id_kotka.';');
+            $pdo->query('UPDATE kotki SET id_wl = '.$_SESSION['id'].', data = NOW()  WHERE id_kotka = '.$id_kotka.';');
         }
         catch(PDOException $e)
         {
