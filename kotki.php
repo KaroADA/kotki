@@ -37,25 +37,32 @@
                         <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                         <div class="form-group mb-3">
                             <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
-                            <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">
-                                <option value="0"'.($kotek['id_okularkow'] == 0 ? ' selected ' : '').'>Nic</option>
-                                <option value="1"'.($kotek['id_okularkow'] == 1 ? ' selected ' : '').'>Okulary 1</option>
-                                <option value="2"'.($kotek['id_okularkow'] == 2 ? ' selected ' : '').'>Okulary 2</option>
-                                <option value="3"'.($kotek['id_okularkow'] == 3 ? ' selected ' : '').'>Okulary 3</option>
-                                <option value="4"'.($kotek['id_okularkow'] == 4 ? ' selected ' : '').'>Okulary 4</option>
-                                <option value="5"'.($kotek['id_okularkow'] == 5 ? ' selected ' : '').'>Okulary 5</option>
+                            <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">';
+                                
+            $okularki = array("Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne");
+            $i = 0;
+
+            foreach($okularki as $okular){
+                echo '<option value="'.$i.'"'.($kotek['id_okularkow'] == $i ? ' selected ' : '').'>'.$okular.'</option>';
+                $i++;
+            }
+
+            echo                '
                             </select>
                         </div>
                         <div class="form-group mb-3">
                             <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
-                            <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">
-                                <option value="0"'.($kotek['id_czapki'] == 0 ? ' selected ' : '').'>Nic</option>
-                                <option value="1"'.($kotek['id_czapki'] == 1 ? ' selected ' : '').'>Mikołaj</option>
-                                <option value="2"'.($kotek['id_czapki'] == 2 ? ' selected ' : '').'>Gej</option>
-                                <option value="3"'.($kotek['id_czapki'] == 3 ? ' selected ' : '').'>Czapa</option>
-                                <option value="4"'.($kotek['id_czapki'] == 4 ? ' selected ' : '').'>Sombrero</option>
-                                <option value="5"'.($kotek['id_czapki'] == 5 ? ' selected ' : '').'>Urodziny</option>
-                            </select>
+                            <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">';
+
+            $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24");
+            $i = 0;
+
+            foreach($czapki as $czapka){
+                echo '<option value="'.$i.'"'.($kotek['id_czapki'] == $i ? ' selected ' : '').'>'.$czapka.'</option>';
+                $i++;
+            }
+
+            echo                '</select>
                         </div>
                     </div>
                 </div>

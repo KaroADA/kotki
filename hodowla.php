@@ -18,7 +18,19 @@
             //pobieranie danych  
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
+
+            $czy_ban = $pdo->query('SELECT czy_ban FROM uzytkownicy WHERE id = '.$_SESSION['id'].';');
+            
+            foreach($czy_ban as $czy_bann)
+            {
+                // echo $czy_bann['czy_ban'];
+
+                if($czy_bann['czy_ban'] == 1){
+                    echo "BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN";
+                    return;
+                }
+            }
+
             $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = 0 ORDER BY RAND() LIMIT 3;');
 
             foreach($wynik as $kotek)
