@@ -8,14 +8,14 @@
         <?php
             session_start();
 
-            if((!isset($_POST['login'])) || (!isset($_POST['haslo'])) || (!isset($_POST['haslo2']))){
+            if((!isset($_POST['login'])) || (!isset($_POST['haslo'])) || (!isset($_POST['haslo_powt']))){
                 header('Location: logowanie.php?logowanie=false');
                 return;
             }
             
             $login = $_POST['login'];
             $haslo = $_POST['haslo'];
-            $haslo2 = $_POST['haslo2'];
+            $haslo2 = $_POST['haslo_powt'];
             $hasz_hasla = password_hash($haslo, PASSWORD_DEFAULT);
 
             if(strlen($login) < 3 || strlen($login) > 15){
@@ -54,7 +54,7 @@
                     header('Location: logowanie.php?logowanie=false');
                 }
                 else{
-                    if($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '".mysqli_real_escape_string($polaczenie, $login)."', '$hasz_hasla')")){
+                    if($polaczenie->query("INSERT INTO uzytkownicy VALUES (NULL, '".mysqli_real_escape_string($polaczenie, $login)."', '$hasz_hasla', 0)")){
                         $_SESSION['blad'] = 'Pomyślnie zarejestrowano, możesz się zalogować!';
                         header('Location: logowanie.php');
                     }

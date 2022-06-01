@@ -42,7 +42,7 @@
 							</div>
 							<div class="form-group mb-3" id="haslo2" style="display: none">
 								<i class="fa fa-lock"></i>
-								<input type="password" name="haslo2" class="form-control" placeholder="Powtórz hasło">					
+								<input type="password" name="haslo_powt" class="form-control" placeholder="Powtórz hasło">					
 							</div>
 							<input class="btn btn-success mb-3 w-100" id="btn-zaloguj" type="submit" value="Zaloguj się">
 						</form>

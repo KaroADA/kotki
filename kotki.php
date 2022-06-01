@@ -17,8 +17,16 @@
         //pobieranie danych  
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            
         
             $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].' ORDER BY data DESC;');
+            $id_wyst_tab = ($pdo->query('SELECT kotki.id_kotka from kotki join wystawa on kotki.id_kotka = wystawa.id_kotka where kotki.id_wl = '.$_SESSION['id'].';'));
+            $id_wyst = 0;
+
+            foreach($id_wyst_tab as $id){
+                $id_wyst = $id['id_kotka'];
+            }
 
             foreach($wynik as $kotek)
             {
@@ -39,13 +47,13 @@
                             <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
                             <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">';
                                 
-            $okularki = array("Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne");
-            $i = 0;
+                            $okularki = array("Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne");
+                            $i = 0;
 
-            foreach($okularki as $okular){
-                echo '<option value="'.$i.'"'.($kotek['id_okularkow'] == $i ? ' selected ' : '').'>'.$okular.'</option>';
-                $i++;
-            }
+                            foreach($okularki as $okular){
+                                echo '<option value="'.$i.'"'.($kotek['id_okularkow'] == $i ? ' selected ' : '').'>'.$okular.'</option>';
+                                $i++;
+                            }
 
             echo                '
                             </select>
@@ -54,16 +62,18 @@
                             <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
                             <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">';
 
-            $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "Pirat", "Róż", "Urodziny 2", "Wieśniara", "Golf", "Przyjaciel", "Pani dworu", "Czapka z daszkiem", "Brązowy kapelusz", "Czarny kapelusz", "Prezydent", "Thug Life", "Elf", "Kriper", "Budowlaniec", "Policja", "Przystojniak", "Kucharz", "Incognito");
-            $i = 0;
+                            $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "Pirat", "Różowy kapelusz", "Urodziny 2", "Wieśniara", "Golf", "Przyjaciel", "Pani dworu", "Czapka z daszkiem", "Brązowy kapelusz", "Czarny kapelusz", "Prezydent", "Thug Life", "Elf", "Kriper", "Budowlaniec", "Policja", "Przystojniak", "Szef kuchni", "Incognito");
+                            $i = 0;
 
-            foreach($czapki as $czapka){
-                echo '<option value="'.$i.'"'.($kotek['id_czapki'] == $i ? ' selected ' : '').'>'.$czapka.'</option>';
-                $i++;
-            }
+                            foreach($czapki as $czapka){
+                                echo '<option value="'.$i.'"'.($kotek['id_czapki'] == $i ? ' selected ' : '').'>'.$czapka.'</option>';
+                                $i++;
+                            }
 
-            echo                '</select>
+            echo                '
+                            </select>
                         </div>
+                        <button type="button" id="btn-naWystawe_'.$kotek['id_kotka'].'" class="btn-naWystawe btn '.($kotek['id_kotka'] == $id_wyst ? ' btn-success ' : 'btn-outline-dark').' w-100">Na wystawę!</button>
                     </div>
                 </div>
             </div>';

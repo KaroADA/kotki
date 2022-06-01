@@ -39,6 +39,7 @@
                     <style>
                         .kotek{
                             max-height: 40px;
+							min-width: 60px;
                             width: min-content;
                         }
                     </style>
@@ -52,10 +53,13 @@
                             <a class="nav-link active" id="moje_kotki_link" href="#">Moje kotki</span></a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" id="wystawa_link" href="#">Wystawa kotków</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" id="hodowla_link" href="#">Hodowla kotków</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="wyloguj_link" href="wyloguj.php">Wyloguj się</a>
+                            <a class="nav-link" id="wyloguj_link" href="wyloguj.php">Wyloguj się z kotków</a>
                         </li>
                     </ul>
                 </div>

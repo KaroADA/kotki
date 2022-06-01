@@ -93,6 +93,19 @@ $(document).on('click', '.nav-link', function() {
                 }
             });
             break;
+        case "wystawa_link":
+            $.ajax({
+                type: "POST",
+                url: "wystawa.php",
+                success: function(data)
+                {
+                    $("#page_container").fadeOut(350, function(){
+                        set_active(id);
+                        $("#page_container").html(data).fadeIn(350);
+                    });
+                }
+            });
+            break;
         case "hodowla_link":
             $.ajax({
                 type: "POST",
@@ -113,6 +126,7 @@ $(document).on('click', '.nav-link', function() {
 
 function set_active(id){
     $("#moje_kotki_link").removeClass("active");
+    $("#wystawa_link").removeClass("active");
     $("#hodowla_link").removeClass("active");
     
     $("#" + id).addClass("active");
@@ -142,6 +156,29 @@ $(document).on('click', '.btn-adoptuj', function() {
                     });
                 }
             });
+        }
+    });
+});
+
+$(document).on('click', '.btn-naWystawe', function() {
+    console.log( this.id );
+
+    id_kotka = this.id.slice(14);
+
+    console.log(id_kotka);
+    
+    $.ajax({
+        type: "POST",
+        url: "naWystawe.php",
+        data: { id_kotka: id_kotka },
+        success: function(data)
+        {
+            console.log(data);
+            $(".btn-naWystawe").removeClass("btn-success");
+            $(".btn-naWystawe").removeClass("btn-outline-dark");
+            $(".btn-naWystawe").addClass("btn-outline-dark");
+            $("#btn-naWystawe_" + id_kotka).addClass("btn-success");
+            $("#btn-naWystawe_" + id_kotka).removeClass("btn-outline-dark");
         }
     });
 });
