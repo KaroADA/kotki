@@ -1,7 +1,7 @@
 <div class="col-2 h-100 p-3">     
     <div class="form-group mb-3">
-        <label for="selectSort">Sortowanie nie działa</label>
-        <select class="form-control" id="selectSort" disabled>
+        <label for="selectSort">Sortowanie może działa</label>
+        <select class="form-control" id="selectSort">
             <option value="0">Od najnowszego</option>
             <option value="1">Od najstarszego</option>
             <option value="2">Wiek rosnąco</option>

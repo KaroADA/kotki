@@ -63,7 +63,7 @@ $(document).on('change', '#selectSort', function() {
 
     $.ajax({
         type: "POST",
-        url: "sort.php",
+        url: "kotki.php",
         data: { id_sort: id_sort},
         success: function(data)
         {            

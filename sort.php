@@ -3,6 +3,8 @@
 
     if (isset($_POST['id_sort'])) {
         echo save($_POST['id_sort']);
+    } else {
+        echo save(0);
     }
 
     function save($id_sort){
