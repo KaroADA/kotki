@@ -69,31 +69,3 @@ function set_active(id){
     
     $("#" + id).addClass("active");
 }
-
-$(document).on('click', '.btn-adoptuj', function() {
-    console.log( this.id );
-
-    id_kotka = this.id.slice(12);
-
-    console.log(id_kotka);
-    
-    $.ajax({
-        type: "POST",
-        url: "adoptuj.php",
-        data: { id_kotka: id_kotka },
-        success: function(data)
-        {
-            console.log(data);
-            $.ajax({
-                type: "POST",
-                url: "hodowla.php",
-                success: function(data)
-                {
-                    $("#page_container").fadeOut(350, function(){
-                        $("#page_container").html(data).fadeIn(350);
-                    });
-                }
-            });
-        }
-    });
-});

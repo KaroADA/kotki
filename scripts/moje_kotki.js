@@ -42,22 +42,59 @@ function post(id_kotka){
     });
 };
 
+id_sort = 0;
+checked_kobieta = true;
+checked_facet = true;
+filtr_okulary = -1;
+filtr_czapki = -1;
+
 $(document).on('change', '#selectSort_moje_kotki', function() {
     console.log( this.value );
 
     id_sort = this.value;
 
-    $.ajax({
-        type: "POST",
-        url: "kotki.php",
-        data: { id_sort: id_sort},
-        success: function(data)
-        {            
-            $("#div_kotki").fadeOut(350, function(){
-                $("#div_kotki").html(data).fadeIn(350)
-            });
-        }
-    });
+    update_kotki_moje_kotki();
+
+});
+
+$(document).on('change', '#input_kobieta_moje_kotki', function() {
+    
+    checked_kobieta = $('#input_kobieta_moje_kotki').is(":checked");
+    
+    console.log( checked_kobieta );
+
+    update_kotki_moje_kotki();
+
+});
+
+$(document).on('change', '#input_facet_moje_kotki', function() {
+
+    checked_facet = $('#input_facet_moje_kotki').is(":checked");
+
+    console.log( checked_facet );
+    
+    update_kotki_moje_kotki();
+
+});
+
+$(document).on('change', '#selectOkularkiFiltrMojeKotki', function() {
+
+    filtr_okulary = this.value;
+
+    console.log( checked_facet );
+    
+    update_kotki_moje_kotki();
+
+});
+
+$(document).on('change', '#selectCzapkiFiltrMojeKotki', function() {
+
+    filtr_czapki = this.value;
+
+    console.log( checked_facet );
+    
+    update_kotki_moje_kotki();
+
 });
 
 $(document).on('click', '.btn-naWystawe', function() {
@@ -82,3 +119,23 @@ $(document).on('click', '.btn-naWystawe', function() {
         }
     });
 });
+
+function update_kotki_moje_kotki(){
+    $.ajax({
+        type: "POST",
+        url: "kotki.php",
+        data: { 
+            id_sort: id_sort,
+            filtr_kot: (checked_facet ? 1 : 0),
+            filtr_kotka: (checked_kobieta ? 1 : 0),
+            filtr_okulary: filtr_okulary,
+            filtr_czapki: filtr_czapki
+        },
+        success: function(data)
+        {            
+            $("#div_kotki").fadeOut(350, function(){
+                $("#div_kotki").html(data).fadeIn(350)
+            });
+        }
+    });
+}

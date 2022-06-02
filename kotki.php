@@ -1,13 +1,31 @@
 <?php
     session_start();
 
-    if (isset($_POST['id_sort'])) {
-        echo get_kotki($_POST['id_sort']);
-    } else {
-        echo get_kotki(0);
-    }
+    $id_sort = 0;
+    $filtr_kot = 1;
+    $filtr_kotka = 1; 
+    $filtr_okulary = -1; 
+    $filtr_czapki = -1;  
 
-    function get_kotki($id_sort){
+    if (isset($_POST['id_sort'])) {
+        $id_sort = $_POST['id_sort'];
+    }
+    if (isset($_POST['filtr_kot'])) {
+        $filtr_kot = $_POST['filtr_kot'];
+    }
+    if (isset($_POST['filtr_kotka'])) {
+        $filtr_kotka = $_POST['filtr_kotka'];
+    }
+    if (isset($_POST['filtr_okulary'])) {
+        $filtr_okulary = $_POST['filtr_okulary'];
+    }
+    if (isset($_POST['filtr_czapki'])) {
+        $filtr_czapki = $_POST['filtr_czapki'];
+    }
+    
+    echo get_kotki($id_sort, $filtr_kotka, $filtr_kot, $filtr_okulary, $filtr_czapki);
+
+    function get_kotki($id_sort, $filtr_kotka, $filtr_kot, $filtr_okulary, $filtr_czapki){
         
         require_once "polaczenie.php";
 
@@ -21,9 +39,30 @@
             //pobieranie danych  
 
             //$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $sorts = array("data DESC", "data", "wiek", "wiek DESC", "waga", "waga DESC", "imie", "imie DESC");
+            $sorts = array("data DESC", "data", "wiek", "wiek DESC", "waga", "waga DESC", "imie", "imie DESC", "lajki DESC", "lajki");
+            
+            $filtry_plec_string = "";
 
-            $wynik = $pdo->query('SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].' ORDER BY '.$sorts[$id_sort]);
+            if($filtr_kot)
+                $filtry_plec_string .= ' OR plec = "Kot"';
+            if($filtr_kotka)
+                $filtry_plec_string .= ' OR plec = "Kotka"';
+
+            $filtry_okulary_string = "";
+
+            if($filtr_okulary != -1)
+                $filtry_okulary_string .= ' AND id_okularkow = '.$filtr_okulary;
+
+            $filtry_czapki_string = "";
+
+            if($filtr_czapki != -1)
+                $filtry_czapki_string .= ' AND id_czapki = '.$filtr_czapki;
+
+            $mysql_query = 'SELECT * FROM kotki WHERE id_wl = '.$_SESSION['id'].' AND (1 = 2 '.$filtry_plec_string.')'.$filtry_okulary_string.$filtry_czapki_string.' ORDER BY '.$sorts[$id_sort];
+            
+            // echo $mysql_query;
+
+            $wynik = $pdo->query($mysql_query);
             $id_wyst_tab = ($pdo->query('SELECT kotki.id_kotka from kotki join wystawa on kotki.id_kotka = wystawa.id_kotka where kotki.id_wl = '.$_SESSION['id'].';'));
             $id_wyst = 0;
 
@@ -43,7 +82,8 @@
                     </div>
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                    <h4 class="card-title mb-3">'.$kotek['imie'].($kotek['plec'] == "Kot" ? " ♂" : " ♀").'</h4>
+                    <h4 class="card-title mb-1">'.$kotek['imie'].($kotek['plec'] == "Kot" ? " ♂" : " ♀").'</h4>
+                    <h6 class="card-title mb-3" id="h6-lajk-'.$kotek['id_kotka'].'">'.$kotek['lajki'].' lajki</h6>
                     <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
                     <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                         <div class="form-group mb-3">
@@ -62,7 +102,7 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czape</label>
+                            <label for="selectCzapki_'.$kotek['id_kotka'].'">Wybierz czapę</label>
                             <select class="form-control selectCzapki" id="selectCzapki_'.$kotek['id_kotka'].'">';
 
             $czapki = array("Nic", "Mikołaj", "Gej", "Czapa", "Sombrero", "Urodziny", "Pirat", "Różowy kapelusz", "Urodziny 2", "Wieśniara", "Golf", "Przyjaciel", "Pani dworu", "Czapka z daszkiem", "Brązowy kapelusz", "Czarny kapelusz", "Prezydent", "Thug Life", "Elf", "Kriper", "Budowlaniec", "Policja", "Przystojniak", "Szef kuchni", "Incognito");

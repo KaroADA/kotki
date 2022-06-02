@@ -18,8 +18,8 @@
             $haslo2 = $_POST['haslo_powt'];
             $hasz_hasla = password_hash($haslo, PASSWORD_DEFAULT);
 
-            if(strlen($login) < 3 || strlen($login) > 15){
-                $_SESSION['blad'] = 'Login musi zawierać od 3 do 15 znaków!';
+            if(strlen($login) < 4 || strlen($login) > 15){
+                $_SESSION['blad'] = 'Login musi zawierać od 4 do 15 znaków!';
             }
             else if(!ctype_alnum($login)){
                 $_SESSION['blad'] = 'Login powinien zawierać wyłącznie litery i/lub liczby!';
@@ -27,7 +27,7 @@
             else if($haslo !== $haslo2){
                 $_SESSION['blad'] = 'Podane hasła nie są jednakowe!';
             }
-            else if(strlen($haslo) < 4 || strlen($haslo) > 30){
+            else if(strlen($haslo) < 8 || strlen($haslo) > 30){
                 $_SESSION['blad'] = 'Hasło musi zawierać od 8 do 30 znaków!';
             }
 
