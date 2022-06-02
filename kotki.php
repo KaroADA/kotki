@@ -1,4 +1,14 @@
 <?php
+
+    function odmien($liczba, $pojedyncza, $mnoga, $mnoga_dopelniacz) {
+        if ($liczba == 1) return $pojedyncza;
+        $reszta10 = $liczba % 10;
+        $reszta100 = $liczba % 100;
+        if ($reszta10 > 4 || $reszta10 < 2 || ($reszta100 < 15 && $reszta100 > 11) || $liczba == 0)
+            return $mnoga_dopelniacz;
+        return $mnoga;
+    }
+
     session_start();
 
     $id_sort = 0;
@@ -83,14 +93,14 @@
                     <!-- <img src="img/kotek.png" class="card-img-top" alt="..."> -->
                     <div class="card-body">
                     <h4 class="card-title mb-1">'.$kotek['imie'].($kotek['plec'] == "Kot" ? " ♂" : " ♀").'</h4>
-                    <h6 class="card-title mb-3" id="h6-lajk-'.$kotek['id_kotka'].'">'.$kotek['lajki'].' lajki</h6>
+                    <h6 class="card-title mb-3" id="h6-lajk-'.$kotek['id_kotka'].'">'.$kotek['lajki'].' '.odmien(strval($kotek['lajki']), "lajk", "lajki", "lajków").'</h6>
                     <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
                     <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
                         <div class="form-group mb-3">
                             <label for="selectOkularki_'.$kotek['id_kotka'].'">Wybierz okularki</label>
                             <select class="form-control selectOkularki" id="selectOkularki_'.$kotek['id_kotka'].'">';
                                                 
-            $okularki = array("Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne");
+            $okularki = array("Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne", "Kociara", "LGBTQQICAPF2K+", "Stary", "Złote", "Babcia na basenie", "Pączuś", "Karol Adamski", "Kujon");
             $i = 0;
 
             foreach($okularki as $okular){

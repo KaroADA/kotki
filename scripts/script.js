@@ -68,4 +68,10 @@ function set_active(id){
     $("#hodowla_link").removeClass("active");
     
     $("#" + id).addClass("active");
+
+    id_sort = 0;
+    checked_kobieta = true;
+    checked_facet = true;
+    filtr_okulary = -1;
+    filtr_czapki = -1;
 }

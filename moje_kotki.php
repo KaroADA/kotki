@@ -1,4 +1,4 @@
-<div class="col-md-2 h-100 p-3">     
+<div class="col-lg-2 h-100 p-3">     
     <div class="form-group mb-3">
         <h6>Sortowanie</h6>
         <select class="form-control mb-3" id="selectSort_moje_kotki">
@@ -26,7 +26,7 @@
         <?php
             echo '<select class="form-control" id="selectOkularkiFiltrMojeKotki">';
                                                     
-            $okularki = array("Nie filtruj", "Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne");
+            $okularki = array("Nie filtruj", "Nic", "Czarne", "Serduschka", "Cool", "Żółte", "Przeciwsłoneczne", "Kociara", "LGBTQQICAPF2K+", "Stary", "Złote", "Babcia na basenie", "Pączuś", "Karol Adamski", "Kujon");
             $i = -1;
 
             foreach($okularki as $okular){

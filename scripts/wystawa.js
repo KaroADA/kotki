@@ -99,7 +99,7 @@ $(document).on('click', '.btn-lajk', function() {
         success: function(data)
         {
             console.log(data);
-            $("#h6-lajk-" + id_kotka).html(lajki + " lajki");
+            $("#h6-lajk-" + id_kotka).html(lajki + " " + odmien(lajki, "lajk", "lajki", "lajków"));
             // update_kotki_wystawa(false);
         }
     });
@@ -126,4 +126,13 @@ function update_kotki_wystawa(fade){
                 $("#div_kotki").html(data);
         }
     });
+}
+
+function odmien(liczba, pojedyncza, mnoga, mnoga_dopelniacz) {
+	if (liczba == 1) return pojedyncza;
+	var reszta10 = liczba % 10;
+	var reszta100 = liczba % 100;
+	if (reszta10 > 4 || reszta10 < 2 || (reszta100 < 15 && reszta100 > 11) || liczba == 0)
+		return mnoga_dopelniacz;
+	return mnoga;
 }
