@@ -1,4 +1,4 @@
-<div class="col-2 h-100 p-3">     
+<div class="col-md-2 h-100 p-3">     
     <div class="form-group mb-3">
         <h6>Sortowanie</h6>
         <select class="form-control mb-3" id="selectSort_moje_kotki">

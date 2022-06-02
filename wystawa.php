@@ -1,6 +1,6 @@
 <div class="col-2 h-100 p-3">     
     <div class="form-group mb-3">
-        <label for="selectSort_wystawa">Sortowanie</label>
+        <h6>Sortowanie</h6>
         <select class="form-control mb-3" id="selectSort_wystawa">
             <option value="2">Wiek rosnąco</option>
             <option value="3">Wiek malejąco</option>
