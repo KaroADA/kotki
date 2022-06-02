@@ -6,11 +6,7 @@
     function save($id_kotka, $id_czapki, $id_okularkow){
         echo $id_kotka.$id_czapki.$id_okularkow;
 
-        $mysql_host = 'mysql.staszic.waw.pl'; 
-        $port = '3306'; //domyslny 3306
-        $username = 'karoada';//uzytkownik
-        $password = 'kotki';//haslo
-        $database = 'karoada'; //baza
+        require_once "polaczenie.php";
 
         try
         {

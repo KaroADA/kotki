@@ -9,11 +9,8 @@
     }
 
     function get_kotki($id_sort){
-        $mysql_host = 'mysql.staszic.waw.pl'; 
-        $port = '3306'; //domyslny 3306
-        $username = 'karoada';//uzytkownik
-        $password = 'kotki';//haslo
-        $database = 'karoada'; //baza
+        
+        require_once "polaczenie.php";
 
         try
         {

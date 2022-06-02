@@ -8,11 +8,7 @@
     function naWystawe($id_kotka){
         echo $id_kotka;
 
-        $mysql_host = 'mysql.staszic.waw.pl'; 
-        $port = '3306'; //domyslny 3306
-        $username = 'karoada';//uzytkownik
-        $password = 'kotki';//haslo
-        $database = 'karoada'; //baza
+        require_once "polaczenie.php";
 
         try
         {
