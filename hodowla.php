@@ -46,7 +46,7 @@
                         <h4 class="card-title mb-3">'.$kotek['imie'].'</h4>
                         <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
                         <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
-                        <input class="btn btn-success w-100 btn-adoptuj" id="btn-adoptuj-'.$kotek['id_kotka'].'" type="submit" value="Adoptuj">
+                        <input class="btn btn-success w-100 shadow-none btn-adoptuj" id="btn-adoptuj-'.$kotek['id_kotka'].'" type="submit" value="Adoptuj">
                     </div>
                 </div>
             </div>';

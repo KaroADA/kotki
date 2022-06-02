@@ -5,7 +5,7 @@
     if (isset($_POST['id_sort'])) {
         echo get_kotki($_POST['id_sort']);
     } else {
-        echo get_kotki(0);
+        echo get_kotki(6);
     }
 
     function get_kotki($id_sort){
@@ -45,7 +45,7 @@
                             <h6 class="card-title mb-1">Właściciel: '.$kotek['login'].'</h6>
                             <h6 class="card-title mb-1">Wiek: '.$kotek['wiek'].'</h6>
                             <h6 class="card-title mb-3">Waga: '.$kotek['waga'].'kg</h6>
-                            <button type="button" class="btn btn-success w-100">Supi kotek</button>
+                            <button type="button" class="btn btn-success w-100 shadow-none">Supi kotek</button>
                         </div>
                     </div>
                 </div>';

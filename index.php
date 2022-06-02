@@ -67,13 +67,15 @@
         </nav>
 
         <div class="container-fluid">
-            <div class="row" id="page_container">
+            <div class="row" id="page_container" style="display: none">
 
             </div>
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="scripts/script.js"></script>  
+        <script type="text/javascript" src="scripts/moje_kotki.js"></script> 
+        <script type="text/javascript" src="scripts/wystawa.js"></script>   
 
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

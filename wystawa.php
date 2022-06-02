@@ -1,14 +1,12 @@
 <div class="col-2 h-100 p-3">     
     <div class="form-group mb-3">
-        <label for="selectSort">Sortowanie może działa</label>
-        <select class="form-control" id="selectSort">
-            <option value="0">Od najnowszego</option>
-            <option value="1">Od najstarszego</option>
+        <label for="selectSort_wystawa">Sortowanie może działa</label>
+        <select class="form-control" id="selectSort_wystawa">
             <option value="2">Wiek rosnąco</option>
             <option value="3">Wiek malejąco</option>
             <option value="4">Waga rosnąco</option>
             <option value="5">Waga malejąco</option>
-            <option value="6">Imie alfabetycznie</option>
+            <option value="6" selected="selected">Imie alfabetycznie</option>
             <option value="7">Imie odwrotnie</option>
         </select>
     </div>

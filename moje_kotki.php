@@ -1,7 +1,7 @@
 <div class="col-2 h-100 p-3">     
     <div class="form-group mb-3">
-        <label for="selectSort">Sortowanie</label>
-        <select class="form-control" id="selectSort">
+        <label for="selectSort_moje_kotki">Sortowanie</label>
+        <select class="form-control" id="selectSort_moje_kotki">
             <option value="0">Od najnowszego</option>
             <option value="1">Od najstarszego</option>
             <option value="2">Wiek rosnąco</option>
