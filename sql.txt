@@ -1,0 +1,35 @@
+
+CREATE TABLE kotki (
+    id_kotka INT PRIMARY KEY NOT NULL,
+    id_wl INT,
+    zdjecie TEXT(100) NOT NULL,
+    imie TEXT(100) NOT NULL,
+    wiek INT NOT NULL,
+    kolor TEXT(100) NOT NULL,
+    waga INT NOT NULL,
+    plec TEXT(100) NOT NULL,
+    id_okularkow INT NOT NULL,
+    id_czapki INT NOT NULL
+); 
+
+CREATE TABLE uzytkownicy (
+    id_wl INT PRIMARY KEY,
+    login TEXT(100),
+    haslo TEXT(100),
+    plec TEXT(100) NOT NULL
+); 
+
+CREATE TABLE wystawa(
+    id_kotka INT PRIMARY KEY
+); 
+
+INSERT INTO wystawa (id_kotka) VALUES (343);
+select * from kotki join wystawa on kotki.id_kotka = wystawa.id_kotka where kotki.id_wl = 4;
+
+select * from wystawa where id_wl = 4;
+
+delete wystawa from wystawa join wystawa on kotki.id_kotka = wystawa.id_kotka where kotki.id_wl = '.$_SESSION['id'].';
+
+
+SELECT kotki.id_kotka from kotki join wystawa on kotki.id_kotka = wystawa.id_kotka join uzytkownicy on kotki.id_wl = uzytkownicy.id_wl where kotki.id_wl = 4;
+

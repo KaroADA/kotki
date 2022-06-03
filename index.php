@@ -58,6 +58,13 @@
                         <li class="nav-item">
                             <a class="nav-link" id="hodowla_link" href="#">Hodowla kotków</a>
                         </li>
+                        <?php
+                            if($_SESSION['id'] == 1){
+                                echo '<li class="nav-item" id="admin_li">
+                                    <a class="nav-link" id="admin_link" href="#">Panel administratora</a>
+                                </li>';
+                            }
+                        ?>
                         <li class="nav-item">
                             <a class="nav-link" id="wyloguj_link" href="wyloguj.php">Wyloguj się z kotków</a>
                         </li>
@@ -76,6 +83,7 @@
         <script type="text/javascript" src="scripts/script.js"></script>  
         <script type="text/javascript" src="scripts/moje_kotki.js"></script> 
         <script type="text/javascript" src="scripts/wystawa.js"></script>   
+        <script type="text/javascript" src="scripts/admin.js"></script>   
 
         <!-- Bootstrap JavaScript Libraries -->
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

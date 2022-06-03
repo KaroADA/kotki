@@ -22,7 +22,7 @@
                 // echo $czy_bann['czy_ban'];
 
                 if($czy_bann['czy_ban'] == 1){
-                    echo "BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN BAN";
+                    echo "Dostęp do hodowli został zablokowany.";
                     return;
                 }
             }

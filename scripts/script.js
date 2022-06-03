@@ -57,6 +57,19 @@ $(document).on('click', '.nav-link', function() {
                 }
             });
             break;
+        case "admin_link":
+            $.ajax({
+                type: "POST",
+                url: "admin.php",
+                success: function(data)
+                {
+                    $("#page_container").fadeOut(350, function(){
+                        set_active(id);
+                        $("#page_container").html(data).fadeIn(350);
+                    });
+                }
+            });
+            break;
         case "wyloguj_link":
             break;
     }
@@ -66,6 +79,7 @@ function set_active(id){
     $("#moje_kotki_link").removeClass("active");
     $("#wystawa_link").removeClass("active");
     $("#hodowla_link").removeClass("active");
+    $("#admin_link").removeClass("active");
     
     $("#" + id).addClass("active");
 
