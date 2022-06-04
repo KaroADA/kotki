@@ -16,7 +16,9 @@ $(document).on('change', '.check-ban-hodowla', function() {
     });
 });
 
-$(document).on('click', '#btn-dodaj', function() {
+$(document).on('submit', '#dodajForm', function(e) {
+    e.preventDefault();
+
     console.log( this.id );
 
     id_kotka = $("#IdInput").val();

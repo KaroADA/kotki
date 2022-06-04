@@ -52,7 +52,7 @@
         </div>
         <div class="col m-3">
             <h6>Dodaj nowego kotka do bazy danych:</h6>
-            <form>
+            <form id="dodajForm">
                 <div class="form-group mb-3">
                     <label for="IdInput">Id kotka</label>
                     
@@ -91,7 +91,7 @@
                     <label for="exampleInputPassword1">Link do zdjęcia</label>
                     <input type="text" class="form-control" id="InputLink">
                     <small>Przykładowe zdjęcie: https://cdn.discordapp.com/attachments/905794819425710110/976213404098383902/obraz.png</small>
-                    <small id="warningZdj" class="text-danger" style="display: none;">Podaj prawidłowy link do zdjęcia</small>
+                    <small id="warningZdj" class="text-danger" style="display: none;"><br>Podaj prawidłowy link do zdjęcia</small>
                 </div>
                 <div class="form-group mb-3">
                     <label for="exampleInputPassword1">Imie</label>
@@ -116,7 +116,7 @@
                     <label for="exampleInputPassword1">Plec</label>
                     <input type="text" class="form-control" id="InputPlec">
                     <small>Kot lub Kotka</small>
-                    <small id="warningPlec" class="text-danger" style="display: none;">Podaj prawidłową płeć</small>
+                    <small id="warningPlec" class="text-danger" style="display: none;"><br>Podaj prawidłową płeć</small>
                 </div>
                 <button type="submit" id="btn-dodaj" class="btn btn-success">Dodaj</button>
             </form>
